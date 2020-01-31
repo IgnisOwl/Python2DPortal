@@ -2,7 +2,7 @@ import pygame
 import Render
 import GenerateMap
 import moveTick
-import PortalShoot
+#import PortalShoot
 
 SCREEN_X = 950
 SCREEN_Y = 550
@@ -24,14 +24,15 @@ SPRITE_SIZE = 50
 SIZE_MULTIPLIER = 1 #size multiplier, to make bigger or smaller
 
 #NOTE: The item list is like: [["portal_orange", x, y, facing], ["player", x, y, facing]]    #Type, x, y, optional things... NOTE: portal can be facing 4 directions, floor, leftwall, ceiling, rightwall
-DEFAULT_ITEMS = [["player", 0, SCREEN_Y-(SPRITE_SIZE*SIZE_MULTIPLIER), "right", 0]]
+DEFAULT_ITEMS = ["player", (SPRITE_SIZE*SIZE_MULTIPLIER)*2, SCREEN_Y-((SPRITE_SIZE*SIZE_MULTIPLIER)*2), "right", 0] #adds to the map NOTE: IN THE FUTURE MAKE A FUNCTION TO CALCULATE OFFSET FOR VALUES INSTEAD OF JUST USING SIZE AND MJLT
 #format for player: [name, x, y, facing, gun_position(0-4)]
 #format for portal: ["portal_orange", x, y, facing]
-#format for walls: ["wall", x, y]
+#format for walls: ["wall", x, y] just change name to sumthin else for win or start
 
 #dictionary of all the paths to sprites
 IMAGE_PATHS = {
-    "player_1" : "player_1.png"
+    "player_1" : "player_1.png",
+    "solid_wall" : "solid_wall.png"
 }
 
 MAP_NAME = "level_1_map.png"
@@ -44,8 +45,7 @@ class Main:
         self.screen = pygame.display.set_mode((SCREEN_X, SCREEN_Y))
         self.clock = pygame.time.Clock()
         self.renderer = Render.Render(self.screen, pygame, COLORS, SPRITE_SIZE, SIZE_MULTIPLIER)
-        self.items = DEFAULT_ITEMS
-        self.map = GenerateMap.getLevelMap(MAP_NAME, COLORS)
+        self.items = GenerateMap.getLevelMap(MAP_NAME, COLORS, SPRITE_SIZE, DEFAULT_ITEMS)
         self.mouseX = 0
         self.mouseY = 0
        
@@ -60,6 +60,7 @@ class Main:
                 #moveTick.moveTick(0, 0, 0, [], event)
                 
             #PortalShoot.shootPortal(self.mousePos()))
+            
             
             self.renderer.render(self.items, IMAGE_PATHS)
             self.clock.tick(FPS)

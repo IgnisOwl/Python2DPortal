@@ -18,6 +18,9 @@ class Render:
                 elif(object[3] == "left"):
                     objectImg = self.pygame.image.load(sprite_image_paths["player_2"])
                     
+            if(object[0][0:6] == "wall"):
+                objectImg = self.pygame.image.load(sprite_image_paths["solid_wall"])
+                    
             objectX = object[1]
             objectY = object[2]
             
