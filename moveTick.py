@@ -1,4 +1,6 @@
 import pygame
+
+#Decides new positional data depending on User Input
 def moveTick(pos,velo):
     if event.key == pygame.KEYDOWN
         if event.key == pygame.K_a or event.key == pygame.K_LEFT:
@@ -20,5 +22,6 @@ def moveTick(pos,velo):
         if event.key == pygame.K_d or event.key == pygame.K_RIGHT:
             velo[0]=0
     return pos,velo
+
 def onGround():
     return true
