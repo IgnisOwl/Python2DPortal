@@ -23,5 +23,6 @@ class Render:
             
             objectImg = self.pygame.transform.scale(objectImg, (self.sprite_size * self.size_multiplier, self.sprite_size * self.size_multiplier))
             self.screen.blit(objectImg, (objectX, objectY))
-            
+        
+        self.pygame.display.update()
         

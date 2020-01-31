@@ -2,6 +2,7 @@ import pygame
 import Render
 import GenerateMap
 import moveTick
+import PortalShoot
 
 SCREEN_X = 950
 SCREEN_Y = 550
@@ -54,15 +55,14 @@ class Main:
 
     def mainLoop(self):
         while True:
-            self.renderer.render(self.items, IMAGE_PATHS)
-            self.clock.tick(FPS)
-            
             for event in pygame.event.get():
                 pass
                 #moveTick.moveTick(0, 0, 0, [], event)
                 
-            print(self.mousePos())
-            pygame.display.update()
+            #PortalShoot.shootPortal(self.mousePos()))
+            
+            self.renderer.render(self.items, IMAGE_PATHS)
+            self.clock.tick(FPS)
 
 if __name__ == "__main__":
     main = Main()
