@@ -14,6 +14,9 @@ COLORS = {
     "WHITE" : (255,255,255)
 }
 
+#NOTE: The item list is like: [["portal", x, y, isIn], ["player", x, y]]    #Type, x, y, optional things...
+ITEMS = [["player", 0, SCREEN_Y]]
+
 class Main:
     def __init__(self):
         self.screen = pygame.display.set_mode((SCREEN_X, SCREEN_Y))

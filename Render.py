@@ -3,6 +3,6 @@ class Render:
         self.screen = screen
         self.pygame = pygame
     
-    def render(self):
+    def render(self, objects):
         self.pygame.display.update()
         
