@@ -1,7 +1,7 @@
 import pygame
 
 #Decides new positional data depending on User Input
-def moveTick(pos,velo,height,walls):
+def moveTick(pos,velo,height,walls,event):
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_a or event.key == pygame.K_LEFT:
             velo[0]=-20
@@ -28,6 +28,6 @@ def moveTick(pos,velo,height,walls):
 def onGround(height,walls):
     w=False
     for a in walls:
-        if a[2]==(heigth+pos[1])
+        if a[2]==(heigth+pos[1]):
             w=True
     return w

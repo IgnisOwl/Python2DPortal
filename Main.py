@@ -1,6 +1,7 @@
 import pygame
 import Render
 import GenerateMap
+import moveTick
 
 SCREEN_X = 950
 SCREEN_Y = 550
@@ -48,13 +49,20 @@ class Main:
         self.mouseY = 0
        
     #wasn't working for now, will fix later maybe 
-    #def mousePos(self):
-    #    return pygame.mouse.get_pos()
+    def mousePos(self):
+        return pygame.mouse.get_pos()
 
     def mainLoop(self):
         while True:
             self.renderer.render(self.items, IMAGE_PATHS)
             self.clock.tick(FPS)
+            
+            for event in pygame.event.get():
+                pass
+                #moveTick.moveTick(0, 0, 0, [], event)
+                
+            print(self.mousePos())
+            pygame.display.update()
 
 if __name__ == "__main__":
     main = Main()
