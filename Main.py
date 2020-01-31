@@ -27,6 +27,8 @@ IMAGE_PATHS = {
     "player_1" : "player_1.png"
 }
 
+SIDESCROLL_BOUNDS = 50 #how many pixels the player can move before sidescrolling takes place
+
 class Main:
     def __init__(self):
         self.screen = pygame.display.set_mode((SCREEN_X, SCREEN_Y))
