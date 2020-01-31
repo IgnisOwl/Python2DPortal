@@ -31,7 +31,11 @@ IMAGE_PATHS = {
     "player_1" : "player_1.png"
 }
 
-SIDESCROLL_BOUNDS = 50 #how many pixels the player can move before sidescrolling takes place
+mouseX=0
+mouseY=0
+
+
+#SIDESCROLL_BOUNDS = 50 #how many pixels the player can move before sidescrolling takes place
 
 class Main:
     def __init__(self):
@@ -40,10 +44,16 @@ class Main:
         self.renderer = Render.Render(self.screen, pygame, COLORS, SPRITE_SIZE, SIZE_MULTIPLIER)
         self.items = DEFAULT_ITEMS
         
+    def mousePos(self):
+        return pygame.mouse.get_pos()
+
     def mainLoop(self):
         while True:
             self.renderer.render(self.items, IMAGE_PATHS)
             self.clock.tick(FPS)
+            mouseX,mouseY=self.mousePos()
+            print(mouseX)
+            print(mouseY)
             
 if __name__ == "__main__":
     main = Main()
