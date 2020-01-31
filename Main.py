@@ -1,8 +1,9 @@
 import pygame
 import Render
 
-SCREEN_X = 960
-SCREEN_Y = 540
+SCREEN_X = 950
+SCREEN_Y = 550
+#this means the level map is SPRITE_SIZE*AmountOfWalls = SCREEN_X or SCREEN_Y
 
 FPS = 60
 
@@ -20,7 +21,10 @@ SPRITE_SIZE = 50
 SIZE_MULTIPLIER = 1 #size multiplier, to make bigger or smaller
 
 #NOTE: The item list is like: [["portal_orange", x, y, facing], ["player", x, y, facing]]    #Type, x, y, optional things... NOTE: portal can be facing 4 directions, floor, leftwall, ceiling, rightwall
-DEFAULT_ITEMS = [["player", 0, SCREEN_Y-(SPRITE_SIZE*SIZE_MULTIPLIER), "right", 0]] #name, x, y, facing, gun_position(0-4)
+DEFAULT_ITEMS = [["player", 0, SCREEN_Y-(SPRITE_SIZE*SIZE_MULTIPLIER), "right", 0]]
+#format for player: [name, x, y, facing, gun_position(0-4)]
+#format for portal: ["portal_orange", x, y, facing]
+#format for walls: ["wall", x, y]
 
 #dictionary of all the paths to sprites
 IMAGE_PATHS = {
