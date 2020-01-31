@@ -15,6 +15,8 @@ def moveTick(pos,velo):
                 pos[1]+=velo[1]
         else:
             velo[1]-=5
+            if velo[1]<-40:
+                velo[1]=-40
             pos[1]+=velo[1]
     elif event.key == pygame.KEYUP:
         if event.key == pygame.K_a or event.key == pygame.K_LEFT:
