@@ -1,5 +1,6 @@
 import pygame
 import Render
+import GenerateMap
 
 SCREEN_X = 950
 SCREEN_Y = 550
@@ -31,8 +32,7 @@ IMAGE_PATHS = {
     "player_1" : "player_1.png"
 }
 
-mouseX=0
-mouseY=0
+MAP_NAME = "level_1_map.png"
 
 
 #SIDESCROLL_BOUNDS = 50 #how many pixels the player can move before sidescrolling takes place
@@ -43,18 +43,19 @@ class Main:
         self.clock = pygame.time.Clock()
         self.renderer = Render.Render(self.screen, pygame, COLORS, SPRITE_SIZE, SIZE_MULTIPLIER)
         self.items = DEFAULT_ITEMS
-        
-    def mousePos(self):
-        return pygame.mouse.get_pos()
+        self.map = GenerateMap.getLevelMap(MAP_NAME, COLORS)
+        self.mouseX = 0
+        self.mouseY = 0
+       
+    #wasn't working for now, will fix later maybe 
+    #def mousePos(self):
+    #    return pygame.mouse.get_pos()
 
     def mainLoop(self):
         while True:
             self.renderer.render(self.items, IMAGE_PATHS)
             self.clock.tick(FPS)
-            mouseX,mouseY=self.mousePos()
-            print(mouseX)
-            print(mouseY)
-            
+
 if __name__ == "__main__":
     main = Main()
     main.mainLoop()
