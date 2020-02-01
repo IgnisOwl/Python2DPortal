@@ -49,7 +49,6 @@ class Main:
         self.mouseX = 0
         self.mouseY = 0
        
-    #wasn't working for now, will fix later maybe 
     def mousePos(self):
         return pygame.mouse.get_pos()
 
